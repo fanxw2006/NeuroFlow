@@ -1,0 +1,8 @@
+atlas:
+  resolution: 25
+cellpose:
+  device: cpu
+  model_type: cyto3
+image_dir: ''
+ontology_json: ./atlas/allen_mouse_10um_java-Ontology.json
+output_dir: ./output
