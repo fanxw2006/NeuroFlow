@@ -1,6 +1,6 @@
 import subprocess
 
-def run_atlas(region_ids, image_dir, merge_roi):
+def run_atlas(region_ids, image_dir):
     cmd = [
         "conda", "run", "-n", "allensdk",
         "python", "allensdk_ROI.py",

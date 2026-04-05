@@ -1,6 +1,6 @@
 import subprocess
 
-def run_cellpose(image_dir, region_ids, params, merge_roi):
+def run_cellpose(image_dir, region_ids, params):
     cmd = [
         "conda", "run", "-n", "cellpose",
         "python", "cellpose_test.py",

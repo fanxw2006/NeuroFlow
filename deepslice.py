@@ -1,9 +1,15 @@
 import os
+import sys
+import io
 import requests
 import h5py
 from DeepSlice import DSModel
 import importlib.util
 import argparse
+
+if sys.platform == 'win32':
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+    sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
 
 WEIGHTS = [
     ("xception_weights_tf_dim_ordering_tf_kernels.h5", "https://data-proxy.ebrains.eu/api/v1/buckets/deepslice/weights/xception_weights_tf_dim_ordering_tf_kernels.h5"),

@@ -30,7 +30,7 @@ ENV_PACKAGES = {
         "matplotlib"
     ],
     "cellpose": [
-        "cellpose==3.0",
+        "cellpose==3.1.1.2",
         "scikit-image",
         "numpy",
         "opencv-python-headless",
@@ -139,6 +139,8 @@ def parse_args():
                         help='CLAHE grid size, larger = more global enhancement (default: 16)')
     parser.add_argument('--trim-percent', type=float, default=1.0, 
                         help='Percentile to trim from both ends for outlier suppression (default: 1.0)')
+    parser.add_argument('--skip-env-check', action='store_true',
+                        help='Skip environment check (default: False)')
     return parser.parse_args()
 
 def check_env():
@@ -210,9 +212,12 @@ def check_env():
     print("\n===== 环境检查完成 =====")
 
 def main():
-    check_env()  # 启用环境检查
-    cfg = load_config()
     args = parse_args()
+    
+    if not args.skip_env_check:
+        check_env()
+    
+    cfg = load_config()
 
     config = {
         "image_dir": cfg["image_dir"],
